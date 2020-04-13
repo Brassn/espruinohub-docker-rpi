@@ -1,8 +1,14 @@
-version: '2'
+version: '3'
+
 services:
-    espruinohub:
-        image: humbertosales/espruinohub-docker-rpi:latest
+    bridge:
+        build: ./src
         network_mode: "host"
         restart: "always"
         privileged: true
-        
+# uncomment the following lines to enable mosquitto mqtt server
+#    mqtt:
+#        image: eclipse-mosquitto
+#        ports:
+#            - 1883:1883
+#            - 9001:9001
